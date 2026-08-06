@@ -53,8 +53,8 @@
 
   programs.firefox.enable = true;
 
-  # programs.waybar.enable = true;
-
+  # programs.waybar.enable = true;  
+  
   programs.hyprland = {
   enable = true;
   withUWSM = true;
@@ -81,6 +81,7 @@
     git
     neovim
     vim
+    fastfetch
     alacritty
     foot
     kitty
