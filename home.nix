@@ -7,6 +7,23 @@
   home.packages = with pkgs; [
     home-manager
   ];
+ 
+  
+
+
+  xdg.configFile = {
+  "hypr/hyprland.lua".source  = ./config/hypr/hyprland.lua;
+  "hypr/monitors.lua".source  = ./config/hypr/monitors.lua;
+  "hypr/autostart.lua".source = ./config/hypr/autostart.lua;
+  "hypr/appearance.lua".source = ./config/hypr/appearance.lua;
+  "hypr/input.lua".source     = ./config/hypr/input.lua;
+  "hypr/keybinds.lua".source  = ./config/hypr/keybinds.lua;
+  "hypr/rules.lua".source     = ./config/hypr/rules.lua;
+  };
+  
+
+
+
 
   programs.foot = {
     enable = true;
