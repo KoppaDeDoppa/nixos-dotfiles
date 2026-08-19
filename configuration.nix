@@ -83,7 +83,7 @@
     vim
     fastfetch
     alacritty
-    foot
+   # foot
     kitty
     waybar
     grim
