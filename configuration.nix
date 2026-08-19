@@ -85,7 +85,7 @@
     alacritty
    # foot
     kitty
-    waybar
+   # waybar
     grim
     slurp
     awww
