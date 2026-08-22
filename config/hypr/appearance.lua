@@ -2,7 +2,7 @@
 -- See https://wiki.hypr.land/Configuring/Basics/Variables/
 
 hl.env("XCURSOR_SIZE", "24")
-hl.env("HYPRCURSOR_SIZE", "24")
+--hl.env("HYPRCURSOR_SIZE", "24")
 
 hl.config({
     general = {
@@ -26,7 +26,7 @@ hl.config({
         rounding_power = 0,
 
         active_opacity   = 1.0,
-        inactive_opacity = 1.0,
+        inactive_opacity = 0.8,
 
         shadow = {
             enabled      = false,
@@ -100,4 +100,4 @@ hl.config({
 })
 
 -- Qt apps --
-hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+--hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")

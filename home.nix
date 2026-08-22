@@ -6,10 +6,55 @@
 
   home.packages = with pkgs; [
     home-manager
+    kdePackages.plasma-integration
+    kdePackages.breeze
+    kdePackages.breeze-icons
+    kdePackages.kconfig
   ];
- 
-  
 
+  qt = {
+  enable = true;
+  platformTheme.name = "kde";
+  style.name = "breeze";
+  };
+  
+  
+  programs.fuzzel = {
+  enable = true;
+  settings = {
+    main = {
+      font = "JetBrainsMono Nerd Font:size=11";
+      terminal = "${pkgs.foot}/bin/foot";
+      layer = "overlay";
+      lines = 12;
+    };
+    colors = {
+      background = "1e1e2ee5";
+      text = "cdd6f4ff";
+      match = "89b4faff";
+      selection = "313244ff";
+      selection-text = "cdd6f4ff";
+      selection-match = "89b4faff";
+      border = "b4befeff";
+    };
+    border = {
+      width = 2;
+      radius = 0;
+    };
+   };
+  };
+
+
+  
+  home.pointerCursor = {
+  enable = true;
+  gtk.enable = true;
+  package = pkgs.kdePackages.breeze;
+  name = "breeze_cursors";
+  size = 24;
+   
+  hyprcursor.enable = true;
+  };
 
   xdg.configFile = {
   "hypr/hyprland.lua".source  = ./config/hypr/hyprland.lua;
@@ -29,13 +74,13 @@
     enable = true;
     settings = {
       main = {
-        font = "JetBrainsMono Nerd Font:size=11";
+        font = "JetBrainsMono Nerd Font:size=12";
         dpi-aware = "yes";
       };
 
       colors-dark = {
-        background = "1e1e2e";
-        foreground = "cdd6f4";
+        background = "1a1b26";
+        foreground = "c0caf5";
       };
 
       scrollback = {

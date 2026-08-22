@@ -53,6 +53,8 @@
 
   programs.firefox.enable = true;
 
+  environment.pathsToLink = [ "/share/color-schemes" ];
+
   # programs.waybar.enable = true;  
   
   programs.hyprland = {
@@ -70,7 +72,16 @@
     };
   };
 
- hardware.graphics.enable = true;
+ hardware.graphics = {
+ 	enable = true;
+	enable32Bit = true;
+ };
+ 
+ programs.steam = {
+   enable = true;
+   dedicatedServer.openFirewall = false;
+ };
+
 
  services.gvfs.enable = true;
 
@@ -88,7 +99,9 @@
    # waybar
     grim
     slurp
+    steam
     awww
+    wlogout
     waypaper
     kdePackages.kate
     kdePackages.dolphin
