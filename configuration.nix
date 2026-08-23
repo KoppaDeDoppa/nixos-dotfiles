@@ -19,7 +19,7 @@
  
   # Testing now
   
-  networking.hostName = "nixos-btw"; # Define your hostname.
+  networking.hostName = "nixos"; # Define your hostname.
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;
 
@@ -82,7 +82,7 @@
    dedicatedServer.openFirewall = false;
  };
 
-
+ services.pipewire.enable = true;
  services.gvfs.enable = true;
 
   # List packages installed in system profile. To search, run:
