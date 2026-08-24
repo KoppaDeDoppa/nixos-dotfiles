@@ -10,6 +10,7 @@
     kdePackages.breeze
     kdePackages.breeze-icons
     kdePackages.kconfig
+    neovim
   ];
 
   qt = {
@@ -56,6 +57,12 @@
   hyprcursor.enable = true;
   };
 
+ 
+  xdg.configFile.nvim.source = ./config/nvim/nvim.init;
+
+
+
+  # Hyprland configs
   xdg.configFile = {
   "hypr/hyprland.lua".source  = ./config/hypr/hyprland.lua;
   "hypr/monitors.lua".source  = ./config/hypr/monitors.lua;

@@ -37,6 +37,25 @@
     variant = "";
   };
 
+  # Automatic updating
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.dates = "weekly";
+
+  # Automatic cleanup
+  nix.gc.automatic = true;
+  nix.gc.dates = "daily";
+  nix.gc.options = "--delete-older-than 10d";
+  nix.settings.auto-optimise-store = true;
+
+
+  # Virt-manager / KVM/QEMU
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+  
+  networking.firewall.trustedInterfaces = [ "virbr0" ];
+
+
+
   # Configure console keymap
   console.keyMap = "no";
 
@@ -44,7 +63,7 @@
   users.users."koppanix" = {
     isNormalUser = true;
     description = "koppanix";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = with pkgs; [];
   };
 
@@ -59,6 +78,7 @@
   
   programs.hyprland = {
   enable = true;
+  xwayland.enable = true;
   withUWSM = true;
   };
 
@@ -71,6 +91,7 @@
       };
     };
   };
+ 
 
  hardware.graphics = {
  	enable = true;
@@ -80,28 +101,45 @@
  programs.steam = {
    enable = true;
    dedicatedServer.openFirewall = false;
+   gamescopeSession.enable = true;
  };
 
- services.pipewire.enable = true;
+ programs.gamemode.enable = true;
+
+ security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true; # if not already enabled
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment the following
+    #jack.enable = true;
+  };
+
+
  services.gvfs.enable = true;
+
+
+ # XDG portal...
+ xdg.portal.enable = true;
+ xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget
     git
-    neovim
-    vim
     fastfetch
     alacritty
-   # foot
+    # foot
     kitty
-   # waybar
+    # waybar
     grim
     slurp
     steam
     awww
     wlogout
+    dnsmasq  #Pkgs for KVM/QEMU network to work
     waypaper
     kdePackages.kate
     kdePackages.dolphin
