@@ -44,8 +44,6 @@
    };
   };
 
-
-  
   home.pointerCursor = {
   enable = true;
   gtk.enable = true;
@@ -56,20 +54,9 @@
   hyprcursor.enable = true;
   };
 
-
-
   programs.neovim = {
     enable = true;
   };
-
-  xdg.configFile = {
-    "nvim" = {
-       source = ./config/nvim;
-       recursive = true;
-    };
-  };
-
-
 
   # Hyprland configs
   xdg.configFile = {
@@ -82,10 +69,6 @@
   "hypr/rules.lua".source     = ./config/hypr/rules.lua;
   };
   
-
-
-
-
   programs.foot = {
     enable = true;
     settings = {
