@@ -1,1 +1,3 @@
-print("I use nvim btw")
+require('config.options')
+require('config.keybinds')
+require('config.lazy')

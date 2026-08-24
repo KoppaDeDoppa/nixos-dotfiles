@@ -10,7 +10,6 @@
     kdePackages.breeze
     kdePackages.breeze-icons
     kdePackages.kconfig
-    neovim
   ];
 
   qt = {
@@ -57,8 +56,18 @@
   hyprcursor.enable = true;
   };
 
- 
-  xdg.configFile.nvim.source = ./config/nvim/nvim.init;
+
+
+  programs.neovim = {
+    enable = true;
+  };
+
+  xdg.configFile = {
+    "nvim" = {
+       source = ./config/nvim;
+       recursive = true;
+    };
+  };
 
 
 

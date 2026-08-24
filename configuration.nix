@@ -131,6 +131,7 @@
     git
     fastfetch
     alacritty
+    vesktop
     # foot
     kitty
     # waybar
